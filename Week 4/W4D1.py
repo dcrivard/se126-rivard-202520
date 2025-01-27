@@ -7,5 +7,16 @@ import csv
 #---functions--------------------------------------
 def letter(num):
     if num >= 90:
-        let = 'A"
+        let = "A"
+    elif num >= 80:
+        let = "B"
+    elif num >= 80:
+        let = "B"
+    elif num >= 80:
+        let = "B"
+    elif num >= 70:
+        let = "B"
+    elif num < 60:
+        let = "F"
+    
 #---main executing code------------------------------
