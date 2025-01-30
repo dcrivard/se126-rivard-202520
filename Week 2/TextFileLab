@@ -1,0 +1,72 @@
+#Derek Rivard
+#lab 2a
+
+
+
+#variable dictionary
+
+
+
+#----Imports-----------------------------------------
+import csv
+#--Functions------------------------------------------
+
+
+
+
+#initialize a record counting variable
+
+
+
+#connecting to the file
+with open("Week 2\filehandling.csv") as csvfile:
+    #Print for headers
+
+    print(f"{'TYPE':10}   {'BRAND':10}   {'CPU':10}   {'RAM':10}   {'1st DISK':10}   {'NO HDD':10}   {'2ND DISK':10}   {'OS':10}   {'YR':10}")
+    print("----------------------------------------------------------------------------------------------------------------------")
+
+    file = csv.reader(csvfile)
+
+    for rec in file:
+
+        if rec[0] == "D":
+            ty.append("Desktop")
+
+        else:
+            ty = "Laptop"
+
+        if rec[1] == "DL":
+            brand = "Dell"
+
+        if rec[1] == "HP":
+            brand = "HP"
+
+        if rec[1] == "GW":
+            brand = "gateway"
+
+        cpu = rec[2]
+        ram = rec[3]
+        fdisk = rec[4]
+        nohdd = rec[5]
+
+        
+        if nohdd == "1":
+            twodisk = "---"
+            os = rec[6]
+            yr = rec[7]
+
+        else:
+            twodisk = rec[6]
+            os = rec[7]
+            yr = rec[8]
+
+
+
+
+
+        print(f"{ty:10}   {brand:10}   {cpu:10}   {ram:10}   {fdisk:10}   {nohdd:10}   {twodisk:10}   {os:10}   {yr:10}")
+
+
+#disconnect from the file
+
+print(f"\n{'TYPE':10}   {'BRAND':10}   {'CPU':10}   {'RAM':10}   {'1st DISK':10}   {'NO HDD':10}   {'2ND DISK':10}   {'OS':10}   {'YR':10}n")
