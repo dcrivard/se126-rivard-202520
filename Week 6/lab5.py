@@ -51,60 +51,42 @@ print("-------------------------------------------------------------------------
 #each title shown in order by bubble sort
 for i in range(0, len(title) -1):
 
-
     for index in range(0, len(title) - 1):#inner loop
 
-
-        #below if statement determines the sort
-
-        #list used is the list being sorted
-
-        # > is for increasing order, < for decreasing
-
         if(title[index] > title[index + 1]):
-
-            print("\t\t SWAP! ", title[index], "<-->", title[index + 1])
 
             #if above is true, swap places!
 
             temp = title[index]
-
             title[index] = title[index + 1]
-
             title[index + 1] = temp
 
             #swap all other values
-
             temp = author[index]
-
             author[index] = author[index + 1]
-
             author[index + 1] = temp
+
             #swap library num
             temp = library_num[index]
-
             library_num[index] = library_num[index + 1]
-
             library_num[index + 1] = temp
+
             #swap genre
             temp = genre[index]
-
             genre[index] = genre[index + 1]
-
             genre[index + 1] = temp
+
             #swap page
             temp = page[index]
-
             page[index] = page[index + 1]
-
             page[index + 1] = temp
+
             #swap status
             temp = status[index]
-
             status[index] = status[index + 1]
-
             status[index + 1] = temp
-
+for i in range(0, len(library_num)):
+    print(f"{library_num[i]:5}  {title[i]:25}  {author[i]:15}  {genre[i]:20}  {page[i]:5}  {status[i]:25}")
 #disconnected from file
 ans = 'y'
 
@@ -131,15 +113,19 @@ while ans == "y":
 
         min = 0
         max = len(title) - 1
-        mid = int((min + max)) / 2
+        mid = int((min + max) / 2)
+   
 
-        while min < max and search.lower() !=  title[mid].lower():
+        print(min, max , mid, title[mid])
+
+        #while min < max and search.lower() != title[mid].lower():
+        while min < max and search.lower() != title[mid].lower():
             if search.lower() < title[mid].lower():
                 max = mid - 1
             else:
                 min = mid + 1
 
-            mid = int((min + max)) / 2
+            mid = int((min + max) / 2)
 
         if search.lower() == title[mid].lower():
             print(f"we found your search for {search}, details below: ")
@@ -159,7 +145,7 @@ while ans == "y":
         for i in range(0, len(author)):
             #for loop performs the SEQUENCE - from start through end of list items
 
-            if search_let.upper() == author[i]: 
+            if search_let.lower() == author[i].lower(): 
                 #if performs the SEARCH - is what we're looking for here in the list?
                 found.append(i)  #stores found item's INDEX LOCATION to the found list because we may have multiple students whose letter grade fits the searched for grade
                 print(f"Found a {search_let} author in INDEX {i}")
@@ -186,10 +172,10 @@ while ans == "y":
         for i in range(0, len(genre)):
             #for loop performs the SEQUENCE - from start through end of list items
 
-            if search_let.upper() == genre[i]: 
+            if search_let.lower() in genre[i].lower(): 
                 #if performs the SEARCH - is what we're looking for here in the list?
                 found.append(i)  #stores found item's INDEX LOCATION to the found list because we may have multiple students whose letter grade fits the searched for grade
-                print(f"Found a {search_let} gebre in INDEX {i}")
+                print(f"Found a {search_let} genre in INDEX {i}")
 
         #step 3: display results to user; make sure you give info: both for found or NOT found
         if not found: #'if not found' means 'found' is an EMPTY LIST
@@ -202,11 +188,13 @@ while ans == "y":
 
             #'found' is a list populated with index locations - we loop through this list, and use found[i] (which again, holds an INDEX from our other searched-through list) to be recalled and used below
             for i in range(0, len(found)):
-                print(f"{library_num[i]:5}  {title[i]:25}  {author[i]:15}  {genre[i]:20}  {page[i]:5}  {status[i]:25}")
+                print(f"{library_num[found[i]]:5}  {title[found[i]]:25}  {author[found[i]]:15}  {genre[found[i]]:20}  {page[found[i]]:5}  {status[found[i]]:25}")
+
+
     elif search_type == "4": #search for library number
         search = input("\nWhat Library number are you searching for?:  ")
         for i in range(0, len(library_num)):
-            if library_num[i] == {search}:
+            if library_num[i] == search:
                 print(f"{library_num[i]:5}  {title[i]:25}  {author[i]:15}  {genre[i]:20}  {page[i]:5}  {status[i]:25}")
                 print("-------------------------------------------------------------------------------------------")
 
@@ -234,9 +222,9 @@ while ans == "y":
 
             #'found' is a list populated with index locations - we loop through this list, and use found[i] (which again, holds an INDEX from our other searched-through list) to be recalled and used below
             for i in range(0, len(found)):
-                print(f"{library_num[i]:5}  {title[i]:25}  {author[i]:15}  {genre[i]:20}  {page[i]:5}  {status[i]:25}")
+                print(f"{library_num[found[i]]:5}  {title[found[i]]:25}  {author[found[i]]:15}  {genre[found[i]]:20}  {page[found[i]]:5}  {status[found[i]]:25}")
 
-
+#last option to user
     elif search_type == "5":
         print(f"\nYou have chosen to EXIT")
         ans = "N"
