@@ -44,7 +44,7 @@ while ans == "y":
     print("3. EXIT")
     search_type = input("\nWhat do you want? [1-3]: ")
     #SEQUENTIAL SEARCH FOR A WORD 
-    if search_type == 1:
+    if search_type == "1":
         search = input("\nEnter the WORD you are looking for: ")
         found = 0
 
@@ -77,5 +77,6 @@ while ans == "y":
         print("-" * 50)
 
 #Search type BYE
-    if ans == 3 or "n":
+    if search_type == "3":
         print("\n\nThank you for using my program, GOODBYE!\n\n\n")
+        ans = "n"
