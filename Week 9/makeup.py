@@ -127,32 +127,35 @@ while ans == "y":
         for i in range(0, len(class1)):
             #for loop performs the SEQUENCE - from start through end of list items
 
-            if search_let == class1 or search_let == class2 or search_let == class3: 
+            if search_let == class1[i] or search_let == class2[i] or search_let == class3[i]: 
                 #if performs the SEARCH - is what we're looking for here in the list?
                 found_class.append(i)  #stores found item's INDEX LOCATION to the found list because we may have multiple students whose letter grade fits the searched for grade
-            print(f"Found a {search_let} status in INDEX {i}")
-            if search == class1: 
+                print(f"Found a {search_let} status in INDEX {i}")
+            '''
+            if search_let == class1: 
                 found = i
                 #if performs the SEARCH - is what we're looking for here in the list?
                 found_class.append(i)  #stores found item's INDEX LOCATION to the found list because we may have multiple students whose letter grade fits the searched for grade
             print(f"Found a {search_let} status in INDEX {i}")
+            
             if class3[i] == found_class: 
                 #if performs the SEARCH - is what we're looking for here in the list?
                 found_class.append(i)  #stores found item's INDEX LOCATION to the found list because we may have multiple students whose letter grade fits the searched for grade
             print(f"Found a {search_let} status in INDEX {i}")
             i + 1
-            #last name FOUND!
-        print(f"Your search for {search_let} was FOUND! Here is their data: ")
 
-            #'found' is a list populated with index locations - we loop through this list, and use found[i] (which again, holds an INDEX from our other searched-through list) to be recalled and used below
-        for i in range(0, len(found_class)):
-            print(f"{id[i]:5}  {lastname[i]:25}  {firstname[i]:15}")
+            '''
+        if not found_class:
+            print(f"Sorry, your search for the class {search_let} could not be found.")
+        else:
+        #class FOUND!
+            print(f"Your search for {search_let} was FOUND! Here is their data: ")
 
-    else:
-    #found is still its initial value, meaning we did not find the data the user was looking for
-    #tell the user their search came up empty
-        print(f"Your search for {search} has NOT BEEN FOUND!")
-        
+                #'found' is a list populated with index locations - we loop through this list, and use found[i] (which again, holds an INDEX from our other searched-through list) to be recalled and used below
+            for i in range(0, len(found_class)):
+                print(f"{id[found_class[i]]:5}  {lastname[found_class[i]]:25}  {firstname[found_class[i]]:15}")
+
+
     #option 5 - end statement
     if search_type == "5":
         print("\n\nThank you for using my program, GOODBYE!\n\n\n")
