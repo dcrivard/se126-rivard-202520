@@ -42,7 +42,7 @@ while ans == "y":
     print("2. Search by driving distance") #searches by golfers last name 
     print("4. Search by wins")#allows to look up the percentage of fairways hit, percentage of greens hit and driving distance
     print("5. Search by majors")
-    print("6. Search by lname")
+    print("6. Search by last name")
     print("7. Search by did they make the cut")
     print("8. EXIT")
 
