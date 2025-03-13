@@ -40,18 +40,14 @@ while ans == "y":
     print("\tSEARCHING MENU")
     print("1. Show all golfers") #show all golfers and their numbers
     print("2. Search by name")
-    print("3. Search by driving distance") #searches by golfers last name 
-    print("4. Search by wins")#allows to look up the percentage of fairways hit, percentage of greens hit and driving distance
-    print("5. Search by majors")
-    print("6. Search by did they make the cut")
-    print("7. EXIT")
+    print("4. EXIT")
 
-    search_type = input("\nHow would you like to search today? [1-8]: ")
+    search_type = input("\nHow would you like to search today? [1-4]: ")
         #option 8 - error
-    if search_type == 8:
+    if search_type == 4:
         print("\n\nThank you for using my program, GOODBYE!\n\n\n")
     #if the search type is wrong
-        if search_type not in ["1", "2", "3", "4", "5", "6", "7"]:
+        if search_type not in ["1", "2", "3", "4"]:
          print("***INVALID ENTRY!***\nPlease try again")
     
     #option 1 - searching for student records
@@ -73,7 +69,7 @@ while ans == "y":
             if search_let.lower() == name[i].lower(): 
                 #if performs the SEARCH - is what we're looking for here in the list?
                 found.append(i)  #stores found item's INDEX LOCATION to the found list because we may have multiple students whose letter grade fits the searched for grade
-                print(f"Found a {search_let} author in INDEX {i}")
+                print(f"Found a {search_let} name in INDEX {i}")
 
         #step 3: display results to user; make sure you give info: both for found or NOT found
         if not found: #'if not found' means 'found' is an EMPTY LIST
@@ -87,33 +83,14 @@ while ans == "y":
             #'found' is a list populated with index locations - we loop through this list, and use found[i] (which again, holds an INDEX from our other searched-through list) to be recalled and used below
             for i in range(0, len(found)):
                 print(f"{name[i]:5}  {distance[i]:20}  {wins[i]:25}  {majors[i]:15}  {cut[i]:5}")
+        
+  
+    #build a way out of the loop - answer should be able to change value! 
+    if search_type == "1" or search_type == "2":
+        #when search_type == "3" the user has chosen to exit, and if they did not provide a 1, 2, or 3 to search_type then they will automatically be brought back through the loop to see the menu again
+        answer = input("Would you like to search again? [y/n]: ").lower()
 
-    elif search_type == "3":
-            print('search by distance')
-
-            search = input("Enter the distance you are looking for: ")
-
-            min = 0
-            max = len(distance) - 1
-            mid = int((min + max) / 2)
-   
-
-            print(min, max , mid, distance[mid])
-
-        #while min < max and search.lower() != id[mid].lower():
-            while min < max and search.lower() != distance[mid].lower():
-                if search.lower() < distance[mid].lower():
-                    max = mid - 1
-                else:
-                    min = mid + 1
-
-            mid = int((min + max) / 2)
- 
-            if search.lower() == distance[mid].lower():
-                print(f"we found your search for {search}, details below: ")
-                print(f"{'name':12}  {'distance':3}  {'wins':3}  {'majors':3}  {'cut':3}")
-                print(f"------------------------------------------------------")
-                print(f"{name[i]:5}  {distance[i]:20}  {wins[i]:25}  {majors[i]:15}  {cut[i]:5}")
-                print(f"---------------------------------------------------------")
-            else:
-                print(f"\nYour search for {search} is complete, no matches found ")
+    #option 4 - end statement
+    if search_type == "3":
+        print("\n\nThank you for using my program, GOODBYE!\n\n\n")
+        ans = "n"
