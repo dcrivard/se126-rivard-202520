@@ -101,17 +101,17 @@ while ans == "y":
             print(min, max , mid, distance[mid])
 
         #while min < max and search.lower() != id[mid].lower():
-            while min < max and search.lower() != name[mid].lower():
+            while min < max and search.lower() != distance[mid].lower():
                 if search.lower() < distance[mid].lower():
                     max = mid - 1
                 else:
                     min = mid + 1
 
             mid = int((min + max) / 2)
-
+ 
             if search.lower() == distance[mid].lower():
                 print(f"we found your search for {search}, details below: ")
-                print(f"{'name':12}  {'distance':3}")
+                print(f"{'name':12}  {'distance':3}  {'wins':3}  {'majors':3}  {'cut':3}")
                 print(f"------------------------------------------------------")
                 print(f"{name[i]:5}  {distance[i]:20}  {wins[i]:25}  {majors[i]:15}  {cut[i]:5}")
                 print(f"---------------------------------------------------------")
